@@ -1,115 +1,120 @@
-var localBoards = document.querySelectorAll(".localBoard");
-var squares = document.querySelectorAll(".square");
-var message = document.getElementById("message");
+let localBoards = document.getElementsByClassName(`localBoard`)
+let squares = document.getElementsByClassName(`square`)
+let turnParagraph = document.getElementById(`turnParagraph`)
+let messageParagraph = document.getElementById(`messageParagraph`)
 
-var turn = "X";
-var requiredIndex = null;
-var numCompleted = 0;
-var gameOver = false;
+let turn = `X`
+let requiredIndex
+let numCompleted = 0
+let gameOver = false
 
-for (var i = 0; i < squares.length; i++) {
-    squares[i].addEventListener("click", clickSquare);
+for (square of squares) {
+  square.addEventListener(`click`, clickSquare)
 }
 
 function clickSquare() {
-    if (!gameOver && this.innerHTML == "") {
-        var boardContainer = this.parentElement.parentElement;
+  if (this.innerHTML == `` && !gameOver) {
+    let localBoard = this.parentElement.parentElement
 
-        if (requiredIndex == null || boardContainer.classList.contains("required")) {
-            if (requiredIndex != null) {
-                localBoards[requiredIndex].classList.remove("required");
-                requiredIndex = null;
-            }
+    if (requiredIndex == null || localBoard.classList.contains(`required`)) {
+      if (requiredIndex != null) {
+        localBoards[requiredIndex].classList.remove(`required`)
+        requiredIndex = null
+      }
 
-            this.innerHTML = turn;
-            turn = turn == "X" ? "O" : "X";
+      this.innerHTML = turn
+      let index = getSquareIndex(this)
 
-            checkLocalGameOver(boardContainer);
-            checkGlobalGameOver();
+      checkLocalGameOver(localBoard)
+      checkGlobalGameOver()
 
-            if (!gameOver) {
-                var index = this.getAttribute("data-index");
-                index = parseInt(index, 10);
+      if (!gameOver) {
+        turn = turn == `X` ? `O` : `X`
+        turnParagraph.innerHTML = `${turn}'s turn`
 
-                if (!localBoards[index].classList.contains("completed")) {
-                    requiredIndex = index;
-                    localBoards[requiredIndex].classList.add("required");
-                }
-            }
+        if (!localBoards[index].classList.contains(`completed`)) {
+          requiredIndex = index
+          localBoards[requiredIndex].classList.add(`required`)
         }
+      }
     }
+  }
 }
 
-function checkLocalGameOver(boardContainer) {
-    var localSquares = boardContainer.querySelectorAll(".square");
+function getSquareIndex(square) {
+  let localBoard = square.parentElement.parentElement
+  let localSquares = localBoard.querySelectorAll(`.square`)
 
-    if (threeInRow(localSquares, "X")) {
-        numCompleted++;
-        boardContainer.classList.add("completed");
-        boardContainer.innerHTML = "X";
+  for (let i = 0; i < localSquares.length; i++) {
+    if (localSquares[i] == square) {
+      return i
     }
-    else if (threeInRow(localSquares, "O")) {
-        numCompleted++;
-        boardContainer.classList.add("completed");
-        boardContainer.innerHTML = "O";
-    }
-    else if (boardIsFull(localSquares)) {
-        numCompleted++;
-        boardContainer.classList.add("completed");
-        boardContainer.innerHTML = "Tie";
-    }
+  }
+}
+
+function checkLocalGameOver(localBoard) {
+  let localSquares = localBoard.querySelectorAll(`.square`)
+
+  if (threeInRow(localSquares)) {
+    localBoard.classList.add(`completed`)
+    localBoard.innerHTML = turn
+    numCompleted++
+  }
+  else if (boardIsFull(localSquares)) {
+    localBoard.classList.add(`completed`)
+    localBoard.innerHTML = `Tie`
+    numCompleted++
+  }
 }
 
 function checkGlobalGameOver() {
-    if (threeInRow(localBoards, "X")) {
-        gameOver = true;
-        message.innerHTML = "X wins!";
-    }
-    else if (threeInRow(localBoards, "O")) {
-        gameOver = true;
-        message.innerHTML = "O wins!";
-    }
-    else if (numCompleted == 9) {
-        gameOver = true;
-        message.innerHTML = "Tie game";
-    }
+  if (threeInRow(localBoards)) {
+    turnParagraph.remove()
+    messageParagraph.innerHTML = `${turn} wins!`
+    gameOver = true
+  }
+  else if (numCompleted == localBoards.length) {
+    turnParagraph.remove()
+    messageParagraph.innerHTML = `Tie game`
+    gameOver = true
+  }
 }
 
-function threeInRow(squareSet, letter) {
-    if (squareSet[0].innerHTML == letter && squareSet[1].innerHTML == letter && squareSet[2].innerHTML == letter) {
-        return true;
-    }
-    else if (squareSet[3].innerHTML == letter && squareSet[4].innerHTML == letter && squareSet[5].innerHTML == letter) {
-        return true;
-    }
-    else if (squareSet[6].innerHTML == letter && squareSet[7].innerHTML == letter && squareSet[8].innerHTML == letter) {
-        return true;
-    }
-    else if (squareSet[0].innerHTML == letter && squareSet[3].innerHTML == letter && squareSet[6].innerHTML == letter) {
-        return true;
-    }
-    else if (squareSet[1].innerHTML == letter && squareSet[4].innerHTML == letter && squareSet[7].innerHTML == letter) {
-        return true;
-    }
-    else if (squareSet[2].innerHTML == letter && squareSet[5].innerHTML == letter && squareSet[8].innerHTML == letter) {
-        return true;
-    }
-    else if (squareSet[0].innerHTML == letter && squareSet[4].innerHTML == letter && squareSet[8].innerHTML == letter) {
-        return true;
-    }
-    else if (squareSet[2].innerHTML == letter && squareSet[4].innerHTML == letter && squareSet[6].innerHTML == letter) {
-        return true;
-    }
+function threeInRow(squareSet) {
+  if (squareSet[0].innerHTML == turn && squareSet[1].innerHTML == turn && squareSet[2].innerHTML == turn) {
+    return true
+  }
+  else if (squareSet[3].innerHTML == turn && squareSet[4].innerHTML == turn && squareSet[5].innerHTML == turn) {
+    return true
+  }
+  else if (squareSet[6].innerHTML == turn && squareSet[7].innerHTML == turn && squareSet[8].innerHTML == turn) {
+    return true
+  }
+  else if (squareSet[0].innerHTML == turn && squareSet[3].innerHTML == turn && squareSet[6].innerHTML == turn) {
+    return true
+  }
+  else if (squareSet[1].innerHTML == turn && squareSet[4].innerHTML == turn && squareSet[7].innerHTML == turn) {
+    return true
+  }
+  else if (squareSet[2].innerHTML == turn && squareSet[5].innerHTML == turn && squareSet[8].innerHTML == turn) {
+    return true
+  }
+  else if (squareSet[0].innerHTML == turn && squareSet[4].innerHTML == turn && squareSet[8].innerHTML == turn) {
+    return true
+  }
+  else if (squareSet[2].innerHTML == turn && squareSet[4].innerHTML == turn && squareSet[6].innerHTML == turn) {
+    return true
+  }
 
-    return false;
+  return false
 }
 
 function boardIsFull(squareSet) {
-    for (var i = 0; i < squareSet.length; i++) {
-        if (squareSet[i].innerHTML == "") {
-            return false;
-        }
+  for (let square of squareSet) {
+    if (square.innerHTML == ``) {
+      return false
     }
+  }
 
-    return true;
+  return true
 }

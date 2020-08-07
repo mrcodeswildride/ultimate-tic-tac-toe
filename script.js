@@ -14,7 +14,7 @@ for (square of squares) {
 
 function clickSquare() {
   if (this.innerHTML == `` && !gameOver) {
-    let localBoard = this.parentElement.parentElement
+    let localBoard = this.closest(`.localBoard`)
 
     if (requiredIndex == null || localBoard.classList.contains(`required`)) {
       if (requiredIndex != null) {
@@ -42,7 +42,7 @@ function clickSquare() {
 }
 
 function getSquareIndex(square) {
-  let localBoard = square.parentElement.parentElement
+  let localBoard = square.closest(`.localBoard`)
   let localSquares = localBoard.querySelectorAll(`.square`)
 
   for (let i = 0; i < localSquares.length; i++) {

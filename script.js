@@ -59,8 +59,7 @@ function checkLocalGameOver(localBoard) {
     localBoard.classList.add(`completed`)
     localBoard.innerHTML = turn
     numCompleted++
-  }
-  else if (boardIsFull(localSquares)) {
+  } else if (boardIsFull(localSquares)) {
     localBoard.classList.add(`completed`)
     localBoard.innerHTML = `Tie`
     numCompleted++
@@ -72,8 +71,7 @@ function checkGlobalGameOver() {
     turnParagraph.remove()
     messageParagraph.innerHTML = `${turn} wins!`
     gameOver = true
-  }
-  else if (numCompleted == localBoards.length) {
+  } else if (numCompleted == localBoards.length) {
     turnParagraph.remove()
     messageParagraph.innerHTML = `Tie game`
     gameOver = true
@@ -81,28 +79,53 @@ function checkGlobalGameOver() {
 }
 
 function threeInRow(squareSet) {
-  if (squareSet[0].innerHTML == turn && squareSet[1].innerHTML == turn && squareSet[2].innerHTML == turn) {
+  if (
+    squareSet[0].innerHTML == turn &&
+    squareSet[1].innerHTML == turn &&
+    squareSet[2].innerHTML == turn
+  ) {
     return true
-  }
-  else if (squareSet[3].innerHTML == turn && squareSet[4].innerHTML == turn && squareSet[5].innerHTML == turn) {
+  } else if (
+    squareSet[3].innerHTML == turn &&
+    squareSet[4].innerHTML == turn &&
+    squareSet[5].innerHTML == turn
+  ) {
     return true
-  }
-  else if (squareSet[6].innerHTML == turn && squareSet[7].innerHTML == turn && squareSet[8].innerHTML == turn) {
+  } else if (
+    squareSet[6].innerHTML == turn &&
+    squareSet[7].innerHTML == turn &&
+    squareSet[8].innerHTML == turn
+  ) {
     return true
-  }
-  else if (squareSet[0].innerHTML == turn && squareSet[3].innerHTML == turn && squareSet[6].innerHTML == turn) {
+  } else if (
+    squareSet[0].innerHTML == turn &&
+    squareSet[3].innerHTML == turn &&
+    squareSet[6].innerHTML == turn
+  ) {
     return true
-  }
-  else if (squareSet[1].innerHTML == turn && squareSet[4].innerHTML == turn && squareSet[7].innerHTML == turn) {
+  } else if (
+    squareSet[1].innerHTML == turn &&
+    squareSet[4].innerHTML == turn &&
+    squareSet[7].innerHTML == turn
+  ) {
     return true
-  }
-  else if (squareSet[2].innerHTML == turn && squareSet[5].innerHTML == turn && squareSet[8].innerHTML == turn) {
+  } else if (
+    squareSet[2].innerHTML == turn &&
+    squareSet[5].innerHTML == turn &&
+    squareSet[8].innerHTML == turn
+  ) {
     return true
-  }
-  else if (squareSet[0].innerHTML == turn && squareSet[4].innerHTML == turn && squareSet[8].innerHTML == turn) {
+  } else if (
+    squareSet[0].innerHTML == turn &&
+    squareSet[4].innerHTML == turn &&
+    squareSet[8].innerHTML == turn
+  ) {
     return true
-  }
-  else if (squareSet[2].innerHTML == turn && squareSet[4].innerHTML == turn && squareSet[6].innerHTML == turn) {
+  } else if (
+    squareSet[2].innerHTML == turn &&
+    squareSet[4].innerHTML == turn &&
+    squareSet[6].innerHTML == turn
+  ) {
     return true
   }
 

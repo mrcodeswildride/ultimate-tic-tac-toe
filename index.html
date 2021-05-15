@@ -1,197 +1,194 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Ultimate Tic-tac-toe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" />
+    <script src="script.js" defer></script>
+  </head>
 
-<head>
-	<title>Ultimate Tic-tac-toe</title>
-	<meta name="viewport" content="width=device-width, initial-scale=0.5">
-	<link href="style.css" rel="stylesheet">
-	<script src="script.js" defer>
+  <body>
+    <h1>Ultimate Tic-tac-toe</h1>
 
-	</script>
-</head>
+    <div id="globalBoard">
+      <div class="row">
+        <div class="localBoard">
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+        </div>
 
-<body>
-	<h1>Ultimate Tic-tac-toe</h1>
+        <div class="localBoard">
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+        </div>
 
-	<div id="globalBoard">
-		<div>
-			<div class="localBoard">
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-			</div>
+        <div class="localBoard">
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+        </div>
+      </div>
 
-			<div class="localBoard">
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-			</div>
+      <div class="row">
+        <div class="localBoard">
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+        </div>
 
-			<div class="localBoard">
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-			</div>
-		</div>
+        <div class="localBoard">
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+        </div>
 
-		<div>
-			<div class="localBoard">
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-			</div>
+        <div class="localBoard">
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+        </div>
+      </div>
 
-			<div class="localBoard">
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-			</div>
+      <div class="row">
+        <div class="localBoard">
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+        </div>
 
-			<div class="localBoard">
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-			</div>
-		</div>
+        <div class="localBoard">
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+        </div>
 
-		<div>
-			<div class="localBoard">
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-			</div>
+        <div class="localBoard">
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+          <div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-			<div class="localBoard">
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-			</div>
+    <div id="sidePanel">
+      <p id="instructions">
+        Two player game. Win a local board to occupy that square on the global board. All subsequent
+        moves must be on the global square that matches the position of the local square, if
+        possible.
+      </p>
 
-			<div class="localBoard">
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-				<div>
-					<div class="square"></div>
-					<div class="square"></div>
-					<div class="square"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="sidePanel">
-		<p id="instructions">
-			Two player game. Win a local board to occupy that square on the global board. All subsequent moves must be on the global
-			square that matches the position of the local square, if possible.
-		</p>
-
-		<p id="turnParagraph">X's turn</p>
-		<p id="messageParagraph"></p>
-	</div>
-</body>
-
+      <p id="turnParagraph">X's turn</p>
+      <p id="messageParagraph"></p>
+    </div>
+  </body>
 </html>
